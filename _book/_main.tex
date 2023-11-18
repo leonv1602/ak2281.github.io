@@ -136,7 +136,7 @@
 
 \title{Modul Analisis Deret Waktu - AK2281}
 \author{Leonardo V Kosasih, S.Aktr, ASAI}
-\date{2023-11-18}
+\date{}
 
 \begin{document}
 \maketitle
@@ -173,46 +173,63 @@ Puji dan syukur saya ucapkan kepada Lorem Ipsum
 \section*{Penyusun Modul}\label{penyusun-modul}}
 \addcontentsline{toc}{section}{Penyusun Modul}
 
-\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title = Tim Praktikum AK2281]
-\normalsize Koordinator Praktikum : Leonardo V. Kosasih, S.Aktr. \\
+Koordinator Praktikum : Leonardo V. Kosasih, S.Aktr., ASAI\\
 Tim Penyusun Modul Praktikum :
-\begin{center}
-\begin{tabular}{ lcclc }
-Ang Ditra Alif Pradana & 10120046 & & Matthew Alfarazh & 10820021\\
-Feby Yolanda & 10819028 & & Pamella Cathryn & 10820033\\
-Ferdinan Gratius Budisatya & 10819041 & &Jeremy & 10820034\\
-Jevan Christopher Aryento & 10820010 & &Aloysius Vincent & 10820038\\
-Shelly Delfiani & 10820014 & &Kevin Christ Aditya & 10820039\\ 
-Binsar Gunadi Simbolon & 10820017 & &Shafina Aulia Kusuma Putri & 10820049 \\
-\end{tabular} \\
-\end{center}
-Desain sampul oleh : Matthew Alfarazh - 10820021
-\end{tcolorbox}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Ang Ditra Alif Pradana-10120046 & Matthew Alfarazh - 10820021 \\
+Feby Yolanda - 10819028 & Pamella Cathryn - 10820033 \\
+Ferdinan Gratius Budisatya - 10819041 & Jeremy - 10820034 \\
+Jevan Christopher Aryento - 10820010 & Aloysius Vincent - 10820038 \\
+Shelly Delfiani - 10820014 & Kevin Christ Aditya - 10820039 \\
+Binsar Gunadi Simbolon - 10820017 & Shafina Aulia Kusuma Putri - 10820049 \\
+\end{longtable}
 
 \hypertarget{daftar-notasi-dan-simbol-yang-digunakan}{%
 \section*{Daftar Notasi dan Simbol yang Digunakan}\label{daftar-notasi-dan-simbol-yang-digunakan}}
 \addcontentsline{toc}{section}{Daftar Notasi dan Simbol yang Digunakan}
 
-\large \textbf{Daftar Istilah dan Simbol} \normalsize  
-
-\begin{enumerate}
-\item $\varepsilon_t$(baca : epsilon) : galat ke-$t$;
-\item $\gamma_k$ (baca : gamma) : kovariansi ke-$k$;
-\item $\rho_k$ (baca : rho) : korelasi ke-$k$; 
-\item $\phi_{ij}$ (baca : phi) : korelasi parsial antara $i$ dan $j$; 
-\item $X \sim \text{N}(0,\sigma^2)$ : Peubah acak $X$ berdistribusi Normal dengan rataan 0 dan variansi $\sigma^2$;  
-\item ACF : \textit{Auto Correlation Function} atau Fungsi Auto korelasi;  
-\item PACF : \textit{Partial Auto Correlation Function} atau Fungsi Auto Korelasi Parsial;
-\item $\mathbb{N}$ : Himpunan bilangan asli $\{1,2,3,\dots\}$;
-\item $\mathbb{N}_0$ : Himpunan bilangan asli dan 0 $\{0,1,2,3,\dots\}$;
-\item $\sigma^2_\varepsilon$ (baca : sigma) : variansi dari $\varepsilon$;
-\item $\bar{x}$ : rataan dari $x$;
-\item $\theta$ (baca : theta);
-\item $\chi^2$ (baca : \textit{chi-squared})
-\item $\mathbf{A}$ : matriks $A$ ukuran $k\times k$; 
-\item $\in$ : elemen dari suatu himpunan.
-\item $\forall$ : untuk setiap
-\end{enumerate}
+\begin{itemize}
+\tightlist
+\item
+  \(\varepsilon_t\)(baca : epsilon) : galat ke-\(t\);\\
+\item
+  \(\gamma_k\) (baca : gamma) : kovariansi ke-\(k\);\\
+\item
+  \(\rho_k\) (baca : rho) : korelasi ke-\(k\);\\
+\item
+  \(\phi_{ij}\) (baca : phi) : korelasi parsial antara \(i\) dan \(j\);\\
+\item
+  \(X \sim \text{N}(0,\sigma^2)\) : Peubah acak \(X\) berdistribusi Normal dengan rataan 0 dan variansi \(\sigma^2\);\\
+\item
+  ACF : \emph{Auto Correlation Function} atau Fungsi Auto korelasi;\\
+\item
+  PACF : \emph{Partial Auto Correlation Function} atau Fungsi Auto Korelasi Parsial;\\
+\item
+  \(\mathbb{N}\) : Himpunan bilangan asli \(\{1,2,3,\dots\}\);\\
+\item
+  \(\mathbb{N}_0\) : Himpunan bilangan asli dan 0 \(\{0,1,2,3,\dots\}\);\\
+\item
+  \(\sigma^2_\varepsilon\) (baca : sigma) : variansi dari \(\varepsilon\);\\
+\item
+  \(\bar{x}\) : rataan dari \(x\);\\
+\item
+  \(\theta\) (baca : theta);\\
+\item
+  \(\chi^2\) (baca : \emph{chi-squared});\\
+\item
+  \(\mathbf{A}\) : matriks \(A\) ukuran \(k\times k\);\\
+\item
+  \(\in\) : elemen dari suatu himpunan.\\
+\item
+  \(\forall\) : untuk setiap
+\end{itemize}
 
 \hypertarget{konsep-dasar-deret-waktu}{%
 \chapter{Konsep Dasar Deret Waktu}\label{konsep-dasar-deret-waktu}}
@@ -238,23 +255,18 @@ Desain sampul oleh : Matthew Alfarazh - 10820021
 \hypertarget{stasioneritas}{%
 \section{Stasioneritas}\label{stasioneritas}}
 
-Asumsi yang harus dipenuhi pada pemodelan deret waktu adalah \textbf{stasioneritas}. Ide dasar dari kestasioneran adalah perilaku data tidak berubah sepanjang waktu. Ada 2 jenis stasioneritas yaitu \textbf{stasioneritas kuat} dan \textbf{stasioneritas lemah}. Misal proses \(\{Y_t\}\) dengan rataan \(\mu_t\). \(\{Y_t\}\) dikatakan \textbf{stasioner kuat} jika distribusi gabungan dari \(Y_{t_1},Y_{t_2},\dots,Y_{t_n}\) sama dengan distribusi gabungan \(Y_{t_1-k},Y_{t_2-k},\dots,Y_{t_n-k}\) untuk semua waktu \(t_1,t_2,\dots,t_n\) dan lag waktu \(k>0\). Contoh : proses white noise \(\{\varepsilon_t\}\) dengan \(\varepsilon_t \sim \text{N}(0, \sigma^2)\) saling bebas dan indentik.\\
-Sedangkan proses stokastik \(\{Y_t \}\) dikatakan \textbf{stasioner lemah} jika :
-
-\begin{enumerate}
-\item Rataan konstan sepanjang waktu atau $E[Y_t] = \mu \quad \forall t \in \mathbb{N}_0$ dan 
-\item Kovariansi untuk semua waktu $t$ dan lag $k$ konstan atau $\text{Cov}(Y_t,Y_{t-k}) = \gamma_{t,t-k} = \gamma_{0,k} = \gamma_k$. 
-\end{enumerate}
+Asumsi yang harus dipenuhi pada pemodelan deret waktu adalah \textbf{stasioneritas}. Ide dasar dari kestasioneran adalah perilaku data tidak berubah sepanjang waktu. Ada 2 jenis stasioneritas yaitu \textbf{stasioneritas kuat} dan \textbf{stasioneritas lemah}. Misal proses \(\{Y_t\}\) dengan rataan \(\mu_t\). \(\{Y_t\}\) dikatakan \textbf{stasioner kuat} jika distribusi gabungan dari \(Y_{t_1},Y_{t_2},\dots,Y_{t_n}\) sama dengan distribusi gabungan \(Y_{t_1-k},Y_{t_2-k},\dots,Y_{t_n-k}\) untuk semua waktu \(t_1,t_2,\dots,t_n\) dan lag waktu \(k>0\).\\
+Contoh : proses white noise \(\{\varepsilon_t\}\) dengan \(\varepsilon_t \sim \text{N}(0, \sigma^2)\) saling bebas dan indentik.\\
+Sedangkan proses stokastik \(\{Y_t \}\) dikatakan \textbf{stasioner lemah} jika:\\
+1. Rataan konstan sepanjang waktu atau \(E[Y_t] = \mu \quad \forall t \in \mathbb{N}_0\); dan\\
+2. Kovariansi untuk semua waktu \(t\) dan lag \(k\) konstan atau \(\text{Cov}(Y_t,Y_{t-k}) = \gamma_{t,t-k} = \gamma_{0,k} = \gamma_k\).
 
 Pada modul ini hanya dibahas tentang sifat kestasioneran lemah.
 
-Beberapa contoh pola data dalam deret waktu, diantaranya pola tren, musiman, dan pola stasioner.
-
-\begin{enumerate}
-\item Pola tren: Terjadi jika terdapat kenaikan atau penurunan sekuler jangka panjang dalam data.
-\item Pola musiman: Terjadi jika suatu deret dipengaruhi oleh faktor musiman (misalnya kuartal tahun, bulanan, atau hari-hari pada minggu tertentu).
-\item Pola stasioner: Terjadi jika  data berfluktuasi di sekitar rata-rata yang konstan.
-\end{enumerate}
+Beberapa contoh pola data dalam deret waktu, diantaranya pola tren, musiman, dan pola stasioner.\\
+1. Pola tren: Terjadi jika terdapat kenaikan atau penurunan sekuler jangka panjang dalam data;\\
+2. Pola musiman: Terjadi jika suatu deret dipengaruhi oleh faktor musiman (misalnya kuartal tahun, bulanan, atau hari-hari pada minggu tertentu); dan\\
+3. Pola stasioner: Terjadi jika data berfluktuasi di sekitar rata-rata yang konstan.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -274,13 +286,18 @@ Beberapa contoh pola data dalam deret waktu, diantaranya pola tren, musiman, dan
 \end{Shaded}
 
 \begin{center}\includegraphics{_main_files/figure-latex/Contoh Plot yang Stasioner dan Tidak Stasioner-1} \end{center}
-\begin{jp}{}{}
-\begin{enumerate}
-\item Berikan interpretasi anda terhadap gambar tersebut !  
-\item Apakah data tersebar pada rataan data ?  
-\item Apakah terdapat pola tren data ?
-\end{enumerate}
-\end{jp}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+Jurnal Praktikum 1 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1. Berikan interpretasi anda terhadap gambar tersebut ! \\
+2. Apakah data tersebar pada rataan data ? \\
+3. Apakah terdapat pola tren data ? \\
+\end{longtable}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -298,13 +315,18 @@ Beberapa contoh pola data dalam deret waktu, diantaranya pola tren, musiman, dan
 \end{Shaded}
 
 \begin{center}\includegraphics{_main_files/figure-latex/Contoh Plot yang Stasioner an Tidak Stasioner-1} \end{center}
-\begin{jp}{}{}
-\begin{enumerate}
-\item Berikan interpretasi anda terhadap grafik tersebut !  
-\item Apakah data tersebar pada rataan data ?  
-\item Selidiki variansi dari data ini. Apakah variansinya tetap sama pada semua lag waktu ?
-\end{enumerate}
-\end{jp}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+Jurnal Praktikum 2 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1. Berikan interpretasi anda terhadap gambar tersebut ! \\
+2. Apakah data tersebar pada rataan data ? \\
+3. Apakah terdapat pola tren data ? \\
+\end{longtable}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -320,13 +342,18 @@ Beberapa contoh pola data dalam deret waktu, diantaranya pola tren, musiman, dan
 \end{Shaded}
 
 \begin{center}\includegraphics{_main_files/figure-latex/Contoh Plot yang Stasioner daan Tidak Stasioner-1} \end{center}
-\begin{jp}{}{}
-\begin{enumerate}
-\item Berikan interpretasi anda terhadap grafik tersebut !  
-\item Apakah data tersebar pada rataan data ?  
-\item Apakah terdapat pola tren data ?
-\end{enumerate}
-\end{jp}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+Jurnal Praktikum 3 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1. Berikan interpretasi anda terhadap gambar tersebut ! \\
+2. Apakah data tersebar pada rataan data ? \\
+3. Apakah terdapat pola tren data ? \\
+\end{longtable}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -341,13 +368,18 @@ Beberapa contoh pola data dalam deret waktu, diantaranya pola tren, musiman, dan
 \end{Shaded}
 
 \begin{center}\includegraphics{_main_files/figure-latex/Contoh Plot yang Stasioner a Tidak Stasioner-1} \end{center}
-\begin{jp}{}{}
-\begin{enumerate}
-\item Berikan interpretasi anda terhadap grafik tersebut !  
-\item Apakah data tersebar pada rataan data ?  
-\item Apakah terdapat pola tren data ?
-\end{enumerate}
-\end{jp}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+Jurnal Praktikum 4 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1. Berikan interpretasi anda terhadap gambar tersebut ! \\
+2. Apakah data tersebar pada rataan data ? \\
+3. Apakah terdapat pola tren data ? \\
+\end{longtable}
 
 \hypertarget{autokorelasi}{%
 \section{Autokorelasi}\label{autokorelasi}}
@@ -365,7 +397,7 @@ H_1 : \rho_k \neq 0
 \end{align*}
 dengan \(k \in \mathbb{N}\). Statistik hitung dari uji ini adalah:
 \begin{equation}
-t_{\text{ratio}} := \frac{\hat{\rho}_k}{\sqrt{\left( 1 + \sum_{i = 1}^{k - 1} \hat{\rho}_i\right)/n}}
+t_{\text{ratio}} := \frac{\hat{\rho}_k}{\sqrt{\left( 1 + \sum_{i = 1}^{k - 1} \hat{\rho}_i\right)/n}} \label{eq:tratio}
 \end{equation}
 dengan \(n\) adalah ukuran sampel.\\
 \(H_0\) akan ditolak jika \(|t_{\text{hitung}}| > Z_{1-\frac{\alpha}{2}}\) dengan \(Z_{1-\frac{\alpha}{2}}\) adalah persentil ke-(\(1-\frac{\alpha}{2}\)) dari distribusi normal baku.\\
@@ -376,7 +408,7 @@ H_1 &: \rho_j \neq 0, \quad \quad j \in \{1, \dots, k \}
 \end{align*}
 dengan \(k \in \mathbb{N}\). Statistik hitung dari uji ini adalah:
 \begin{equation}
-Q(k) := n\left(n+2\right)\sum_{i=1}^k \frac{\hat{\rho}_i^2}{n-i}
+Q(k) := n\left(n+2\right)\sum_{i=1}^k \frac{\hat{\rho}_i^2}{n-i} \label{eq:statuji}
 \end{equation}
 \(H_0\) ditolak jika \(Q(k) > \chi^2_{1-\alpha,k}\) dengan \(\chi^2_{1-\alpha,k}\) adalah nilai persentil \(1-\alpha\) dari distribusi \(\chi^2\) dengan derajat kebebasan \(k\).
 
@@ -385,7 +417,7 @@ Q(k) := n\left(n+2\right)\sum_{i=1}^k \frac{\hat{\rho}_i^2}{n-i}
 
 Misalkan \(\varepsilon_1,\varepsilon_2, \dots\) barisan peubah acak yang berdistribusi Normal yang saling bebas dan identik dengan \(E[\varepsilon_i]=0\) dan \(\text{Var}(\varepsilon_i) =\sigma^2_\varepsilon\) untuk semua \(i\). Maka proses \emph{random walk} dapat dikonstruksi dengan persamaan berikut:
 \begin{equation}
-Y_t = \sum_{i=1}^t \varepsilon_i
+Y_t = \sum_{i=1}^t \varepsilon_i \label{eq:rw}
 \end{equation}
 yang dapat ditulis secara rekursif seperti berikut:
 \begin{equation}
@@ -393,16 +425,30 @@ Y_t = Y_{t-1} - \varepsilon_t
 \end{equation}
 
 \hypertarget{contoh-soal}{%
-\section{Contoh soal :}\label{contoh-soal}}
+\section{Contoh Soal}\label{contoh-soal}}
 
-\begin{jp}{}{}
-Klik link ini untuk mendownload data.\href{https://drive.google.com/uc?export=download&id=1zevgGmfz87MJYn8OuIX5FEBgypR-DWnG}{\textcolor{blue}{TEKAN UNTUK MENGUNDUH DATA}} kemudian buatlah algoritma untuk menghitung :  
-\begin{enumerate}
-\item Rataan dari data  
-\item Kovariansi dari data  
-\item Korelasi dari data
-\end{enumerate}
-\end{jp}
+\begin{quote}
+Unduh data berikut ini
+\end{quote}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\href{https://drive.google.com/uc?export=download\&id=1zevgGmfz87MJYn8OuIX5FEBgypR-DWnG}{TEKAN UNTUK MENGUNDUH DATA}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+\begin{quote}
+kemudian buatlah algoritma untuk menghitung :\\
+1. Rataan dari data;\\
+2. Kovariansi dari data; dan\\
+3. Korelasi dari data
+\end{quote}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -473,11 +519,11 @@ Pada bab ini akan dipelajari perilaku umum dari ACF dan PACF untuk menentukan or
 
 \begin{figure}
 
-{\centering \includegraphics{_main_files/figure-latex/Contoh Plot tails dan cut-1} 
+{\centering \includegraphics{_main_files/figure-latex/unnamed-chunk-1-1} 
 
 }
 
-\caption{Tails off (gambar atas) dan Cuts Off (gambar bawah)}(\#fig:Contoh Plot tails dan cut)
+\caption{*Tails off (gambar atas) dan Cuts Off (gambar bawah)*}\label{fig:unnamed-chunk-1}
 \end{figure}
 
 Berikut adalah persamaan autokorelasi sampel :
@@ -495,14 +541,27 @@ Sedangkan untuk persamaan autokorelasi parsial sampel adalah sebagai berikut :\\
 \end{align*}
 Perilaku umum dari ACF dan PACF untuk model ARMA.
 
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-&AR$(p)$&MA$(q)$& ARMA$(p,q)$ \\ \hline
-\textbf{ACF} &\textit{Tails off}&   \textit{Cuts off} setelah lag-$q$&  \textit{Tails off} setelah lag ke-$q$ \\ \hline 
-\textbf{PACF}& \textit{Cuts off} setelah lag $p$    &\textit{Tails off} & \textit{Tails off} setelah lag ke-$p$\\ \hline
-\end{tabular}
-\end{center}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1210}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2823}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2823}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3145}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+AR\((p)\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MA\((q)\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ARMA\((p,q)\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+ACF & \emph{Tails off} & \emph{Cuts off} setelah lag ke-\(q\) & \emph{Tails off} setelah lag ke-\(q\) \\
+PACF & \emph{Cuts off} setelah lag ke-\(p\) & \emph{Tails off} & \emph{Tails off} setelah lag ke-\(p\) \\
+\end{longtable}
 
 Model deret waktu umum yang sering digunakan adalah model regresi diri (\emph{Autoregressive}), dinotasikan AR, model rataan bergerak (\emph{Moving Average}), dinotasikan MA, dan model campuran regresi diri dan rataan bergerak (\emph{Autoregressive Moving Average}), dinotasikan ARMA.
 
@@ -523,7 +582,7 @@ sedangkan untuk kovariansi dari model MA dapat diperoleh sebagai berikut\\
 \text{Cov}(Y_t,Y_{t-1}) &=\text{Cov}(\varepsilon_t-\theta_1 \varepsilon_{t-1}, \varepsilon_{t-1}-\theta_1 \varepsilon_{t-2}) \\
 &=-\theta_1 \text{Cov}(\varepsilon_{t-1},\varepsilon_{t-1}) \quad (\text{Mengapa?}) \\
 &=-\theta_1 \sigma_\varepsilon^2
-\end{align*}\\
+\end{align*}
 dan
 \begin{align*}
 \text{Cov}(Y_t,Y_{t-2})&=\text{Cov}(\varepsilon_t - \theta_1 \varepsilon_{t-1},\varepsilon_{t-2}-\theta_1\varepsilon_{t-3}) \\ 
