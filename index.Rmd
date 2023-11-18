@@ -26,7 +26,7 @@ bibliography: [book.bib, packages.bib]
 description: |
   Modul Analisis Deret Waktu AK2281 - Institut Teknologi Bandung
 link-citations: yes
-github-repo: rstudio/bookdown-demo
+github-repo: leonv1602/analisis-deret-waktu-ak2281
 language:
   label:
     fig: 'Gambar'
