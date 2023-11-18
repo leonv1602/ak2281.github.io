@@ -1,0 +1,15 @@
+eq:tratio
+eq:statuji
+eq:rw
+fig:unnamed-chunk-1
+konsep-dasar-deret-waktu
+tujuan
+stasioneritas
+autokorelasi
+random-walk
+contoh-soal
+model-deret-waktu-stasioner
+moving-average-ma
+autoregressive-ar
+autoregressive-moving-average-arma
+simulasi-data-manual
