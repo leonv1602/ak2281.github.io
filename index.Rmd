@@ -51,7 +51,6 @@ bookdown::gitbook:
       twitter: true
       linkedin: true
       whatsapp: true
-      all: ['facebook', 'twitter', 'linkedin', 'whatsapp']
     info: true
 ---
 \newtcbtheorem[auto counter]{jp}{Jurnal Praktikum}{fonttitle=\bfseries\upshape, fontupper=\slshape, arc=0mm, colback=blue!5!white,colframe=blue!75!black}{jurnal}
