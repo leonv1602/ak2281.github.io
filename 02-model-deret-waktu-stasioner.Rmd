@@ -116,7 +116,7 @@ pacf(simulasi_ar, main = 'Grafik PACF Data MA(1)',
 | 1. Berikan interpretasi anda terhadap gambar tersebut ! |
 | 2. Apakah PACF berprilaku sesuai dengan model MA ?               |
 | 3. Apakah data tersebut masih cocok dimodelkan dengan model MA(1) ? Berikan alasan anda !|
-| 3. Ulangi langkah-langkah pada Jurnal Praktikum 6 dan Jurnal Praktikum 7 dengan mengganti nilai variabel ```theta``` dan ```n\_sim```!|
+| 3. Ulangi langkah-langkah pada Jurnal Praktikum 6 dan Jurnal Praktikum 7 dengan mengganti nilai variabel ```theta``` dan ```n_sim```!|
     
 
 Catatan: Nilai variabel theta dibuat negatif karena bahasa pemrograman R mendefinisikan model MA ($q$) sebagai:
@@ -176,27 +176,22 @@ plot(simulasi_ar, main = 'Grafik Data AR(1)')
 acf(simulasi_ar, main = 'Grafik ACF Data AR(1)', 
   lag.max = 36)
 ```
-\begin{jp}{}{}
-\begin{enumerate}
-\item Berikan interpretasi anda mengenai grafik tersebut !  
-\item Apakah ACF berprilaku sesuai dengan model AR (1)?
-\end{enumerate}
-\end{jp} 
+  
+| Jurnal Praktikum 9                                   |
+|------------------------------------------------------|
+| 1. Berikan interpretasi anda terhadap gambar tersebut ! |
+| 2. Apakah ACF berprilaku sesuai dengan model AR (1)?              |
 
 ```{r pacf AR, echo=TRUE, fig.align='center', fig.keep='all'}
 pacf(simulasi_ar, main = 'Grafik PACF Data AR(1)', 
   lag.max = 36)
 ```
-Interpretasi Gambar : 
 
-\begin{jp}{}{}
-\begin{enumerate}
-\item Berikan interpretasi anda mengenai grafik tersebut !  
-\item Apakah PACF berprilaku sesuai dengan model AR (1)?
-\item Apakah data tersebut masih cocok dimodelkan dengan model AR(1) ?
-\item Ulangi langkah di atas dengan memvariasikan nilai variabel phi dan n\_sim !
-\end{enumerate}
-\end{jp}   
+| Jurnal Praktikum 8                                   |
+|------------------------------------------------------|
+| 1. Berikan interpretasi anda mengenai grafik tersebut !  |
+| 2. Apakah data tersebut masih cocok dimodelkan dengan model AR(1) ?|
+| 3. Ulangi langkah di atas dengan memvariasikan nilai variabel ```phi``` dan ```n_sim``` !|
 
 ## Autoregressive Moving Average (ARMA)
 Misalkan $Y_t=(Y_1,Y_2,…,Y_n )$, jika proses $Y_t$ mengikuti proses ARMA dengan orde $(p,q)$ maka dapat dinyatakan dengan persamaan berikut

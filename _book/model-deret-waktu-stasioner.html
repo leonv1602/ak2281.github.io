@@ -352,7 +352,7 @@ Untuk membuat simulasi model MA(1) dapat menggunakan kode berikut :</p>
 <td>3. Apakah data tersebut masih cocok dimodelkan dengan model MA(1) ? Berikan alasan anda !</td>
 </tr>
 <tr class="even">
-<td>3. Ulangi langkah-langkah pada Jurnal Praktikum 6 dan Jurnal Praktikum 7 dengan mengganti nilai variabel <code>theta</code> dan <code>n\_sim</code>!</td>
+<td>3. Ulangi langkah-langkah pada Jurnal Praktikum 6 dan Jurnal Praktikum 7 dengan mengganti nilai variabel <code>theta</code> dan <code>n_sim</code>!</td>
 </tr>
 </tbody>
 </table>
@@ -421,11 +421,46 @@ Untuk membuat simulasi model AR(1) dapat menggunakan kode berikut :</p>
 </table>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="model-deret-waktu-stasioner.html#cb13-1" tabindex="-1"></a><span class="fu">acf</span>(simulasi_ar, <span class="at">main =</span> <span class="st">&#39;Grafik ACF Data AR(1)&#39;</span>, </span>
 <span id="cb13-2"><a href="model-deret-waktu-stasioner.html#cb13-2" tabindex="-1"></a>  <span class="at">lag.max =</span> <span class="dv">36</span>)</span></code></pre></div>
-<img src="_main_files/figure-html/acf%20AR-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="_main_files/figure-html/acf%20AR-1.png" width="672" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th>Jurnal Praktikum 9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Berikan interpretasi anda terhadap gambar tersebut !</td>
+</tr>
+<tr class="even">
+<td>2. Apakah ACF berprilaku sesuai dengan model AR (1)?</td>
+</tr>
+</tbody>
+</table>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="model-deret-waktu-stasioner.html#cb14-1" tabindex="-1"></a><span class="fu">pacf</span>(simulasi_ar, <span class="at">main =</span> <span class="st">&#39;Grafik PACF Data AR(1)&#39;</span>, </span>
 <span id="cb14-2"><a href="model-deret-waktu-stasioner.html#cb14-2" tabindex="-1"></a>  <span class="at">lag.max =</span> <span class="dv">36</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/pacf%20AR-1.png" width="672" style="display: block; margin: auto;" />
-Interpretasi Gambar :</p>
+<p><img src="_main_files/figure-html/pacf%20AR-1.png" width="672" style="display: block; margin: auto;" /></p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Jurnal Praktikum 8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Berikan interpretasi anda mengenai grafik tersebut !</td>
+</tr>
+<tr class="even">
+<td>2. Apakah data tersebut masih cocok dimodelkan dengan model AR(1) ?</td>
+</tr>
+<tr class="odd">
+<td>3. Ulangi langkah di atas dengan memvariasikan nilai variabel <code>phi</code> dan <code>n_sim</code> !</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="autoregressive-moving-average-arma" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> Autoregressive Moving Average (ARMA)<a href="model-deret-waktu-stasioner.html#autoregressive-moving-average-arma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
