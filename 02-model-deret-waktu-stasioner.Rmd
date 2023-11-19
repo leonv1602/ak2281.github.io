@@ -88,45 +88,46 @@ acf(simulasi_ar, main = 'Grafik ACF Data MA(1)',
 pacf(simulasi_ar, main = 'Grafik PACF Data MA(1)', 
   lag.max = 36)
 ```
-\begin{jp}{}{}
-\begin{enumerate}
-\item Berikan interpretasi anda mengenai grafik tersebut !  
-\item Apakah data tersebar pada rataan data ?  
-\item Apakah terdapat pola tren data ?
-\end{enumerate}
-\end{jp}  
+  
+| Jurnal Praktikum 5                                   |
+|------------------------------------------------------|
+| 1. Berikan interpretasi anda terhadap gambar tersebut ! |
+| 2. Apakah data tersebar pada rataan data ?              |
+| 3. Apakah terdapat pola tren data ?                     |
+    
 ```{r acf MA, echo=TRUE, fig.align='center', fig.keep='all'}
 acf(simulasi_ar, main = 'Grafik ACF Data MA(1)', 
   lag.max = 36)
 ```
-\begin{jp}{}{}
-\begin{enumerate}
-\item Berikan interpretasi anda mengenai grafik tersebut !  
-\item Apakah ACF berprilaku sesuai dengan model MA ? 
-\item Apakah data tersebut masih cocok dimodelkan dengan model MA(1) ? Berikan alasan anda !
-\end{enumerate}
-\end{jp}
+  
+| Jurnal Praktikum 6                                   |
+|------------------------------------------------------|
+| 1. Berikan interpretasi anda terhadap gambar tersebut ! |
+| 2. Apakah ACF berprilaku sesuai dengan model MA ?               |
+| 3. Apakah data tersebut masih cocok dimodelkan dengan model MA(1) ? Berikan alasan anda !|
+    
 ```{r pacf MA, echo=TRUE, fig.align='center', fig.keep='all'}
 pacf(simulasi_ar, main = 'Grafik PACF Data MA(1)', 
   lag.max = 36)
 ```
-\begin{jp}{}{}
-\begin{enumerate}
-\item Berikan interpretasi anda mengenai grafik tersebut !  
-\item Apakah PACF berprilaku sesuai dengan model MA ?
-\item Apakah data tersebut masih cocok dimodelkan dengan model MA(1) ? Berikan alasan anda !
-\item Ulangi langkah-langkah di atas dengan mengganti nilai variabel theta dan n\_sim!
-\end{enumerate}
-\end{jp}  
+  
+| Jurnal Praktikum 7                                   |
+|------------------------------------------------------|
+| 1. Berikan interpretasi anda terhadap gambar tersebut ! |
+| 2. Apakah PACF berprilaku sesuai dengan model MA ?               |
+| 3. Apakah data tersebut masih cocok dimodelkan dengan model MA(1) ? Berikan alasan anda !|
+| 3. Ulangi langkah-langkah pada Jurnal Praktikum 6 dan Jurnal Praktikum 7 dengan mengganti nilai variabel ```theta``` dan ```n\_sim```!|
+    
+
 Catatan: Nilai variabel theta dibuat negatif karena bahasa pemrograman R mendefinisikan model MA ($q$) sebagai:
 \begin{equation}
-Y_t=\varepsilon_t + \theta_1 \varepsilon_{t-1} + \theta_2 \varepsilon_{t-2} + \dots + \theta_q \varepsilon_{t-q}
+Y_t=\varepsilon_t + \theta_1 \varepsilon_{t-1} + \theta_2 \varepsilon_{t-2} + \dots + \theta_q \varepsilon_{t-q} (\#eq:maq)
 \end{equation}  
 
 ## Autoregressive (AR)  
 Misalkan $Y_t=(Y_1,Y_2,…,Y_n )$, jika proses $\{Y_t\}$ mengikuti proses Autoregressive (AR) dengan orde $p$ maka dapat dinyatakan dengan persamaan berikut
 \begin{equation}
-Y_t=\phi_1 Y_{t-1}+\phi_2 Y_{t-2}+\dots+\phi_p Y_{t-p}+\varepsilon_t
+Y_t=\phi_1 Y_{t-1}+\phi_2 Y_{t-2}+\dots+\phi_p Y_{t-p}+\varepsilon_t (\#eq:arp)
 \end{equation}
 Interpretasi dari persamaan di atas adalah : nilai saat ini dari deret waktu $Y_t$ adalah kombinasi linier dari $p$ nilai dirinya di masa lalu ditambah dengan galat, $\varepsilon_t$
 Misalkan proses $\{Y_t\}$ terpusat, $Y_t$ mengikuti proses AR(1) maka dapat dinyatakan dengan persamaan berikut
@@ -164,13 +165,13 @@ simulasi_ar <- arima.sim(model = list(c(1,0,0), ar = phi),
                        n = n_sim)
 plot(simulasi_ar, main = 'Grafik Data AR(1)')
 ```
-\begin{jp}{}{}
-\begin{enumerate}
-\item Berikan interpretasi anda mengenai grafik tersebut !  
-\item Apakah data tersebar pada rataan data ?  
-\item Apakah terdapat pola tren data ?
-\end{enumerate}
-\end{jp}  
+  
+| Jurnal Praktikum 8                                   |
+|------------------------------------------------------|
+| 1. Berikan interpretasi anda terhadap gambar tersebut ! |
+| 2. Apakah data tersebar pada rataan data ?              |
+| 3. Apakah terdapat pola tren data ?                     |
+      
 ```{r acf AR, echo=TRUE, fig.align='center', fig.keep='all'}
 acf(simulasi_ar, main = 'Grafik ACF Data AR(1)', 
   lag.max = 36)
