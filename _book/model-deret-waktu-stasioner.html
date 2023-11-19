@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4" data-path="model-deret-waktu-stasioner.html"><a href="model-deret-waktu-stasioner.html#simulasi-data-manual"><i class="fa fa-check"></i><b>2.4</b> Simulasi Data Manual</a></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://leonv1602.github.io/ak2281.github.io/konsep-dasar-deret-waktu.html" target="blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -286,23 +286,86 @@ Untuk membuat simulasi model MA(1) dapat menggunakan kode berikut :</p>
 <p><img src="_main_files/figure-html/Model%20MA-2.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="model-deret-waktu-stasioner.html#cb9-1" tabindex="-1"></a><span class="fu">pacf</span>(simulasi_ar, <span class="at">main =</span> <span class="st">&#39;Grafik PACF Data MA(1)&#39;</span>, </span>
 <span id="cb9-2"><a href="model-deret-waktu-stasioner.html#cb9-2" tabindex="-1"></a>  <span class="at">lag.max =</span> <span class="dv">36</span>)</span></code></pre></div>
-<img src="_main_files/figure-html/Model%20MA-3.png" width="672" style="display: block; margin: auto;" />
+<p><img src="_main_files/figure-html/Model%20MA-3.png" width="672" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th>Jurnal Praktikum 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Berikan interpretasi anda terhadap gambar tersebut !</td>
+</tr>
+<tr class="even">
+<td>2. Apakah data tersebar pada rataan data ?</td>
+</tr>
+<tr class="odd">
+<td>3. Apakah terdapat pola tren data ?</td>
+</tr>
+</tbody>
+</table>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="model-deret-waktu-stasioner.html#cb10-1" tabindex="-1"></a><span class="fu">acf</span>(simulasi_ar, <span class="at">main =</span> <span class="st">&#39;Grafik ACF Data MA(1)&#39;</span>, </span>
 <span id="cb10-2"><a href="model-deret-waktu-stasioner.html#cb10-2" tabindex="-1"></a>  <span class="at">lag.max =</span> <span class="dv">36</span>)</span></code></pre></div>
-<img src="_main_files/figure-html/acf%20MA-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="_main_files/figure-html/acf%20MA-1.png" width="672" style="display: block; margin: auto;" /></p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Jurnal Praktikum 6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Berikan interpretasi anda terhadap gambar tersebut !</td>
+</tr>
+<tr class="even">
+<td>2. Apakah ACF berprilaku sesuai dengan model MA ?</td>
+</tr>
+<tr class="odd">
+<td>3. Apakah data tersebut masih cocok dimodelkan dengan model MA(1) ? Berikan alasan anda !</td>
+</tr>
+</tbody>
+</table>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="model-deret-waktu-stasioner.html#cb11-1" tabindex="-1"></a><span class="fu">pacf</span>(simulasi_ar, <span class="at">main =</span> <span class="st">&#39;Grafik PACF Data MA(1)&#39;</span>, </span>
 <span id="cb11-2"><a href="model-deret-waktu-stasioner.html#cb11-2" tabindex="-1"></a>  <span class="at">lag.max =</span> <span class="dv">36</span>)</span></code></pre></div>
-<img src="_main_files/figure-html/pacf%20MA-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="_main_files/figure-html/pacf%20MA-1.png" width="672" style="display: block; margin: auto;" /></p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Jurnal Praktikum 7</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Berikan interpretasi anda terhadap gambar tersebut !</td>
+</tr>
+<tr class="even">
+<td>2. Apakah PACF berprilaku sesuai dengan model MA ?</td>
+</tr>
+<tr class="odd">
+<td>3. Apakah data tersebut masih cocok dimodelkan dengan model MA(1) ? Berikan alasan anda !</td>
+</tr>
+<tr class="even">
+<td>3. Ulangi langkah-langkah pada Jurnal Praktikum 6 dan Jurnal Praktikum 7 dengan mengganti nilai variabel <code>theta</code> dan <code>n\_sim</code>!</td>
+</tr>
+</tbody>
+</table>
 <p>Catatan: Nilai variabel theta dibuat negatif karena bahasa pemrograman R mendefinisikan model MA (<span class="math inline">\(q\)</span>) sebagai:
-<span class="math display">\[\begin{equation}
-Y_t=\varepsilon_t + \theta_1 \varepsilon_{t-1} + \theta_2 \varepsilon_{t-2} + \dots + \theta_q \varepsilon_{t-q}
+<span class="math display" id="eq:maq">\[\begin{equation}
+Y_t=\varepsilon_t + \theta_1 \varepsilon_{t-1} + \theta_2 \varepsilon_{t-2} + \dots + \theta_q \varepsilon_{t-q} \tag{2.1}
 \end{equation}\]</span></p>
 </div>
 <div id="autoregressive-ar" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Autoregressive (AR)<a href="model-deret-waktu-stasioner.html#autoregressive-ar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Misalkan <span class="math inline">\(Y_t=(Y_1,Y_2,…,Y_n )\)</span>, jika proses <span class="math inline">\(\{Y_t\}\)</span> mengikuti proses Autoregressive (AR) dengan orde <span class="math inline">\(p\)</span> maka dapat dinyatakan dengan persamaan berikut
-<span class="math display">\[\begin{equation}
-Y_t=\phi_1 Y_{t-1}+\phi_2 Y_{t-2}+\dots+\phi_p Y_{t-p}+\varepsilon_t
+<span class="math display" id="eq:arp">\[\begin{equation}
+Y_t=\phi_1 Y_{t-1}+\phi_2 Y_{t-2}+\dots+\phi_p Y_{t-p}+\varepsilon_t \tag{2.2}
 \end{equation}\]</span>
 Interpretasi dari persamaan di atas adalah : nilai saat ini dari deret waktu <span class="math inline">\(Y_t\)</span> adalah kombinasi linier dari <span class="math inline">\(p\)</span> nilai dirinya di masa lalu ditambah dengan galat, <span class="math inline">\(\varepsilon_t\)</span>
 Misalkan proses <span class="math inline">\(\{Y_t\}\)</span> terpusat, <span class="math inline">\(Y_t\)</span> mengikuti proses AR(1) maka dapat dinyatakan dengan persamaan berikut
@@ -337,7 +400,25 @@ Untuk membuat simulasi model AR(1) dapat menggunakan kode berikut :</p>
 <span id="cb12-3"><a href="model-deret-waktu-stasioner.html#cb12-3" tabindex="-1"></a>simulasi_ar <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">ar =</span> phi), </span>
 <span id="cb12-4"><a href="model-deret-waktu-stasioner.html#cb12-4" tabindex="-1"></a>                       <span class="at">n =</span> n_sim)</span>
 <span id="cb12-5"><a href="model-deret-waktu-stasioner.html#cb12-5" tabindex="-1"></a><span class="fu">plot</span>(simulasi_ar, <span class="at">main =</span> <span class="st">&#39;Grafik Data AR(1)&#39;</span>)</span></code></pre></div>
-<img src="_main_files/figure-html/Model%20AR-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="_main_files/figure-html/Model%20AR-1.png" width="672" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th>Jurnal Praktikum 8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Berikan interpretasi anda terhadap gambar tersebut !</td>
+</tr>
+<tr class="even">
+<td>2. Apakah data tersebar pada rataan data ?</td>
+</tr>
+<tr class="odd">
+<td>3. Apakah terdapat pola tren data ?</td>
+</tr>
+</tbody>
+</table>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="model-deret-waktu-stasioner.html#cb13-1" tabindex="-1"></a><span class="fu">acf</span>(simulasi_ar, <span class="at">main =</span> <span class="st">&#39;Grafik ACF Data AR(1)&#39;</span>, </span>
 <span id="cb13-2"><a href="model-deret-waktu-stasioner.html#cb13-2" tabindex="-1"></a>  <span class="at">lag.max =</span> <span class="dv">36</span>)</span></code></pre></div>
 <img src="_main_files/figure-html/acf%20AR-1.png" width="672" style="display: block; margin: auto;" />

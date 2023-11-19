@@ -20,9 +20,6 @@ header-includes:
     - \usepackage{caption}
     - \usepackage{theorem}
     - \usepackage[bahasai]{babel}
-bibliography: [book.bib, packages.bib]
-# url: your book url like https://bookdown.org/yihui/bookdown
-# cover-image: path to the social sharing image like images/cover.jpg
 description: |
   Modul Analisis Deret Waktu AK2281 - Institut Teknologi Bandung
 link-citations: yes
@@ -42,9 +39,7 @@ bookdown::gitbook:
     edit : null
     download: ['pdf']
     search:
-      engine: lunr # or fuse
-      # options to control/tune search engine behavior (for
-      # fuse.js, refer to https://fusejs.io/api/options.html)
+      engine: lunr 
       options: null
     fontsettings:
       theme: white

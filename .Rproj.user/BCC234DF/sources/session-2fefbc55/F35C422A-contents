@@ -1,0 +1,14 @@
+delete_merged_file: true
+language:
+  label:
+    fig: 'Gambar '
+    tab: 'Tabel '
+    eq: 'Persamaan '
+    thm: 'Teorema '
+    lem: 'Lemma '
+    def: 'Definisi '
+    exm: 'Contoh '
+    exr: 'Latihan '
+    hyp: 'Hipotesa '
+    proof: 'Bukti '
+    solution: 'Solusi '

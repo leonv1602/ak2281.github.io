@@ -1,0 +1,199 @@
+# Konsep Dasar Deret Waktu  
+
+## Tujuan
+1.	Memahami pola data deret waktu,  
+2.	Mengidentifikasi deret waktu stasioner,  
+3.	Menghitung rataan, kovariansi dan korelasi pada deret waktu  
+4.	Mengenal model *random walk*.  
+5.  Mengidentifikasi perilaku ACF dan PACF.  
+
+  
+##	Stasioneritas
+Asumsi yang harus dipenuhi pada pemodelan deret waktu adalah **stasioneritas**. Ide dasar dari kestasioneran adalah perilaku data tidak berubah sepanjang waktu. Ada 2 jenis stasioneritas yaitu **stasioneritas kuat** dan **stasioneritas lemah**. Misal proses $\{Y_t\}$ dengan rataan $\mu_t$. $\{Y_t\}$ dikatakan **stasioner kuat** jika  distribusi gabungan dari $Y_{t_1},Y_{t_2},\dots,Y_{t_n}$ sama dengan distribusi gabungan $Y_{t_1-k},Y_{t_2-k},\dots,Y_{t_n-k}$ untuk semua waktu $t_1,t_2,\dots,t_n$ dan lag waktu $k>0$.  
+Contoh : proses white noise $\{\varepsilon_t\}$ dengan $\varepsilon_t \sim \text{N}(0, \sigma^2)$ saling bebas dan indentik.  
+Sedangkan proses stokastik $\{Y_t \}$ dikatakan  **stasioner lemah** jika:  
+1. Rataan konstan sepanjang waktu atau $E[Y_t] = \mu \quad \forall t \in \mathbb{N}_0$; dan  
+2. Kovariansi untuk semua waktu $t$ dan lag $k$ konstan atau $\text{Cov}(Y_t,Y_{t-k}) = \gamma_{t,t-k} = \gamma_{0,k} = \gamma_k$.  
+  
+Pada modul ini hanya dibahas tentang sifat kestasioneran lemah.   
+
+Beberapa contoh pola data dalam deret waktu, diantaranya pola tren, musiman, dan pola stasioner.  
+1. Pola tren: Terjadi jika terdapat kenaikan atau penurunan sekuler jangka panjang dalam data;  
+2. Pola musiman: Terjadi jika suatu deret dipengaruhi oleh faktor musiman (misalnya kuartal tahun, bulanan, atau hari-hari pada minggu tertentu); dan  
+3. Pola stasioner: Terjadi jika  data berfluktuasi di sekitar rata-rata yang konstan.  
+```{r Contoh Plot yang Stasioner dan Tidak Stasioner, echo=TRUE, message=FALSE, warning=FALSE,fig.align='center'}
+# Package yang digunakan 
+library(zoo)
+library(forecast)
+library(tseries)
+
+# Seed agar simulasi tetap sama
+set.seed(1602)
+
+# Contoh data White Noise
+wn <- arima.sim(model =list(order = c(0,0,0)),n =300)
+plot(wn, main = 'Data 1, Stasioner')
+abline(h=mean(wn),col='red',lwd=2,lty = 2)
+```
+  
+| Jurnal Praktikum 1                                   |
+|------------------------------------------------------|
+| 1. Berikan interpretasi anda terhadap gambar tersebut ! |
+| 2. Apakah data tersebar pada rataan data ?              |
+| 3. Apakah terdapat pola tren data ?                     |
+  
+```{r Contoh Plot yang Stasioner an Tidak Stasioner, echo=TRUE, message=FALSE, warning=FALSE,fig.align='center'}
+# Seed agar simulasi tetap sama
+set.seed(1602)
+
+# Data Harga Emas
+data(gold)
+sum <- ts(gold[1:300])
+sum <- na.fill(sum,median(sum,na.rm=TRUE))
+mean_sum <- mean(sum,na.rm=TRUE)
+plot(sum, main = 'Data Harga Emas, Tidak Stasioner')
+abline(h=mean_sum,col='red',lwd=2,lty = 2)
+```
+
+| Jurnal Praktikum 2                                  |
+|------------------------------------------------------|
+| 1. Berikan interpretasi anda terhadap gambar tersebut ! |
+| 2. Apakah data tersebar pada rataan data ?              |
+| 3. Apakah terdapat pola tren data ?                     |
+  
+```{r Contoh Plot yang Stasioner daan Tidak Stasioner, echo=TRUE, message=FALSE, warning=FALSE,fig.align='center'}
+# Seed agar simulasi tetap sama
+set.seed(1602)
+
+# Data CO2
+data("co2")
+seasonal <- ts(co2[1:300])
+plot(seasonal, main = 'Data CO2, Tidak Stasioner')
+abline(h=mean(seasonal),col='red',lwd=2,lty = 2)
+```
+
+| Jurnal Praktikum 3                                   |
+|------------------------------------------------------|
+| 1. Berikan interpretasi anda terhadap gambar tersebut ! |
+| 2. Apakah data tersebar pada rataan data ?              |
+| 3. Apakah terdapat pola tren data ?                     |
+
+```{r Contoh Plot yang Stasioner a Tidak Stasioner, echo=TRUE, message=FALSE, warning=FALSE,fig.align='center'}
+# Seed agar simulasi tetap sama
+set.seed(1602)
+
+# Membuat data Random Walk
+random_walk <- arima.sim(model = list(order=c(0,1,0)),n=300)
+plot(random_walk, main = 'Data Random Walk, Tidak Stasioner')
+abline(h=mean(random_walk),col='red',lwd=2,lty = 2)
+```
+
+| Jurnal Praktikum 4                              |
+|------------------------------------------------------|
+| 1. Berikan interpretasi anda terhadap gambar tersebut ! |
+| 2. Apakah data tersebar pada rataan data ?              |
+| 3. Apakah terdapat pola tren data ?                     |
+
+## Autokorelasi      
+Misalkan proses $\{Y_t\}$ stasioner maka korelasi antar peubah acak yang terpisah sejauh $k$ lag waktu adalah: 
+\begin{align*}
+\rho_k &= \text{Corr}(Y_t, Y_{t-k}) \\
+&= \frac{\text{Cov}(Y_t, Y_{t-k})}{\sqrt{\text{Var}(Y_t)\text{Var}(Y_{t-k})}} \\
+&= \frac{\gamma_k}{\gamma_0}, \quad k \in \mathbb{N}_0
+\end{align*}
+Terdapat statistik uji untuk menguji apakah nilai autokorelasi pada suatu lag ke-$k$ signifikan atau tidak. Statistik uji tersebut adalah statistik **uji $t_{ratio}$** dengan 
+\begin{align*}
+H_0 : \rho_k = 0 \\
+H_1 : \rho_k \neq 0 
+\end{align*}
+dengan $k \in \mathbb{N}$. Statistik hitung dari uji ini adalah:
+\begin{equation}
+t_{\text{ratio}} := \frac{\hat{\rho}_k}{\sqrt{\left( 1 + \sum_{i = 1}^{k - 1} \hat{\rho}_i\right)/n}} (\#eq:tratio)
+\end{equation}
+dengan $n$ adalah ukuran sampel.    
+$H_0$ akan ditolak jika $|t_{\text{hitung}}| > Z_{1-\frac{\alpha}{2}}$ dengan $Z_{1-\frac{\alpha}{2}}$ adalah persentil ke-($1-\frac{\alpha}{2}$) dari distribusi normal baku.  
+Sedangkan statistik uji untuk menguji apakah autokorelasi dari lag pertama hingga lag ke-$k$ signikan adalah Uji Ljung Box dengan:
+\begin{align*}
+H_0 &: \rho_1 = \rho_2 = \dots = \rho_k = 0 \\
+H_1 &: \rho_j \neq 0, \quad \quad j \in \{1, \dots, k \} 
+\end{align*}
+dengan $k \in \mathbb{N}$. Statistik hitung dari uji ini adalah:
+\begin{equation}
+Q(k) := n\left(n+2\right)\sum_{i=1}^k \frac{\hat{\rho}_i^2}{n-i} (\#eq:statuji)
+\end{equation}
+$H_0$ ditolak jika $Q(k) > \chi^2_{1-\alpha,k}$ dengan $\chi^2_{1-\alpha,k}$ adalah nilai persentil $1-\alpha$ dari distribusi $\chi^2$ dengan derajat kebebasan $k$.  
+
+## Random Walk  
+Misalkan $\varepsilon_1,\varepsilon_2, \dots$ barisan peubah acak yang berdistribusi Normal yang saling bebas dan identik dengan $E[\varepsilon_i]=0$ dan $\text{Var}(\varepsilon_i) =\sigma^2_\varepsilon$ untuk semua $i$. Maka proses *random walk* dapat dikonstruksi dengan persamaan berikut:
+\begin{equation}
+Y_t = \sum_{i=1}^t \varepsilon_i (\#eq:rw)
+\end{equation}
+yang dapat ditulis secara rekursif seperti berikut: 
+\begin{equation}
+Y_t = Y_{t-1} - \varepsilon_t
+\end{equation}
+
+## Contoh Soal  
+> Unduh data berikut ini   
+
+| [TEKAN UNTUK MENGUNDUH DATA](https://drive.google.com/uc?export=download&id=1zevgGmfz87MJYn8OuIX5FEBgypR-DWnG)                                |
+|------------------------------------------------------|
+
+> kemudian buatlah algoritma untuk menghitung :  
+1. Rataan dari data;  
+2. Kovariansi dari data; dan    
+3. Korelasi dari data  
+
+```{r Contoh Soal, message=FALSE, warning=FALSE,fig.align='center'}
+# Membaca data
+library(readxl)
+df <- read_excel("data.xlsx")  
+
+# Membuat plot data
+plot(df$Date, df$`Ice Cream Sales`, type = 'line', 
+   xlab= 'Tanggal', ylab= 'Penjualan Es Krim', 
+   col = 'black', 
+   main = 'Plot Data Penjualan Es Krim')
+abline(h=mean(df$`Ice Cream Sales`), 
+     col='red',
+     lwd=2,lty = 2)
+
+
+# Algoritma menghitung rataan (boleh menggunakan sum)  
+sum_x <- sum(df$`Ice Cream Sales`)
+len <- length(df$`Ice Cream Sales`)
+rata_x <- sum_x/len
+
+# Algoritma menghitung kovariansi  
+maxLag <- 24
+kov <- rep(0, maxLag)
+for (k in 1: maxLag) {
+x_star <- df$`Ice Cream Sales`[1:(len-k+1)]-
+  mean(df$`Ice Cream Sales`[1:(len-k+1)]) 
+y_star <- df$`Ice Cream Sales`[(1+k-1):len]-
+  mean(df$`Ice Cream Sales`[(1+k-1):len])
+kov[k]  <-  (x_star)%*%(y_star) /(len)
+}
+# Algoritma menghitung korelasi
+kor <- rep(0, maxLag)
+for (k in 1: maxLag) {
+x_star <- df$`Ice Cream Sales`[1:(len-k+1)]-
+  mean(df$`Ice Cream Sales`[1:(len-k+1)]) 
+y_star <- df$`Ice Cream Sales`[k:len]-
+  mean(df$`Ice Cream Sales`[k:len])
+penyebut <- sqrt((x_star%*%x_star)*(y_star%*%y_star))
+kor[k]  <-  x_star%*%y_star/penyebut
+}
+```
+Penjelasan lebih lanjut : 
+Persamaan kovariansi dapat ditulis sebagai berikut : 
+\begin{equation}
+\hat{\gamma}_{XY} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{n} = \frac{1}{n}(\vec{x}^* \cdot \vec{y}^*) 
+\end{equation}
+dengan $\vec{x}^* = (x_1 - \bar{x}, \dots, x_n - \bar{x})^T$ dan $\vec{y}^* = (y_1 - \bar{y}, \dots, y_n - \bar{y})^T$.  
+Sedangkan persamaan korelasi dapat ditulis sebagai berikut
+\begin{equation}
+\hat{\rho}_{XY} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2\sum_{i=1}^n(y_i - \bar{y})^2}} = \frac{1}{\sqrt{(\vec{x}^{*^T}\cdot \vec{x}^*)(\vec{y}^{*^T}\cdot \vec{y}^{*})}}(\vec{x}^* \cdot \vec{y}^*) 
+\end{equation}  
+Catatan : 
+Perhatikan bahwa terdapat kovariansi dan variansi sampel dan populasi. Untuk algoritma menghitung kovariansi sampel dan variansi sampel diserahkan kepada pembaca.    
