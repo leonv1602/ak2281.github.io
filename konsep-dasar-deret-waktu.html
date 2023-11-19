@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Konsep Dasar Deret Waktu | Modul Analisis Deret Waktu - AK2281</title>
+  <meta name="description" content="Modul Analisis Deret Waktu AK2281 - Institut Teknologi Bandung" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Konsep Dasar Deret Waktu | Modul Analisis Deret Waktu - AK2281" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Modul Analisis Deret Waktu AK2281 - Institut Teknologi Bandung" />
+  <meta name="github-repo" content="leonv1602/analisis-deret-waktu-ak2281" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Konsep Dasar Deret Waktu | Modul Analisis Deret Waktu - AK2281" />
+  
+  <meta name="twitter:description" content="Modul Analisis Deret Waktu AK2281 - Institut Teknologi Bandung" />
+  
+
+<meta name="author" content="Leonardo V Kosasih, S.Aktr, ASAI" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="model-deret-waktu-stasioner.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Modul Analisis Deret Waktu - AK2281</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Selamat Datang !</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#kata-pengantar"><i class="fa fa-check"></i>Kata Pengantar</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#kontak-penulis"><i class="fa fa-check"></i>Kontak Penulis</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#penyusun-modul"><i class="fa fa-check"></i>Penyusun Modul</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#daftar-notasi-dan-simbol-yang-digunakan"><i class="fa fa-check"></i>Daftar Notasi dan Simbol yang Digunakan</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="konsep-dasar-deret-waktu.html"><a href="konsep-dasar-deret-waktu.html"><i class="fa fa-check"></i><b>1</b> Konsep Dasar Deret Waktu</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="konsep-dasar-deret-waktu.html"><a href="konsep-dasar-deret-waktu.html#tujuan"><i class="fa fa-check"></i><b>1.1</b> Tujuan</a></li>
+<li class="chapter" data-level="1.2" data-path="konsep-dasar-deret-waktu.html"><a href="konsep-dasar-deret-waktu.html#stasioneritas"><i class="fa fa-check"></i><b>1.2</b> Stasioneritas</a></li>
+<li class="chapter" data-level="1.3" data-path="konsep-dasar-deret-waktu.html"><a href="konsep-dasar-deret-waktu.html#autokorelasi"><i class="fa fa-check"></i><b>1.3</b> Autokorelasi</a></li>
+<li class="chapter" data-level="1.4" data-path="konsep-dasar-deret-waktu.html"><a href="konsep-dasar-deret-waktu.html#random-walk"><i class="fa fa-check"></i><b>1.4</b> Random Walk</a></li>
+<li class="chapter" data-level="1.5" data-path="konsep-dasar-deret-waktu.html"><a href="konsep-dasar-deret-waktu.html#contoh-soal"><i class="fa fa-check"></i><b>1.5</b> Contoh Soal</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="model-deret-waktu-stasioner.html"><a href="model-deret-waktu-stasioner.html"><i class="fa fa-check"></i><b>2</b> Model Deret Waktu Stasioner</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="model-deret-waktu-stasioner.html"><a href="model-deret-waktu-stasioner.html#moving-average-ma"><i class="fa fa-check"></i><b>2.1</b> Moving Average (MA)</a></li>
+<li class="chapter" data-level="2.2" data-path="model-deret-waktu-stasioner.html"><a href="model-deret-waktu-stasioner.html#autoregressive-ar"><i class="fa fa-check"></i><b>2.2</b> Autoregressive (AR)</a></li>
+<li class="chapter" data-level="2.3" data-path="model-deret-waktu-stasioner.html"><a href="model-deret-waktu-stasioner.html#autoregressive-moving-average-arma"><i class="fa fa-check"></i><b>2.3</b> Autoregressive Moving Average (ARMA)</a></li>
+<li class="chapter" data-level="2.4" data-path="model-deret-waktu-stasioner.html"><a href="model-deret-waktu-stasioner.html#simulasi-data-manual"><i class="fa fa-check"></i><b>2.4</b> Simulasi Data Manual</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://leonv1602.github.io/ak2281.github.io/konsep-dasar-deret-waktu.html" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modul Analisis Deret Waktu - AK2281</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="konsep-dasar-deret-waktu" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Konsep Dasar Deret Waktu<a href="konsep-dasar-deret-waktu.html#konsep-dasar-deret-waktu" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="tujuan" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Tujuan<a href="konsep-dasar-deret-waktu.html#tujuan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Memahami pola data deret waktu,<br />
+</li>
+<li>Mengidentifikasi deret waktu stasioner,<br />
+</li>
+<li>Menghitung rataan, kovariansi dan korelasi pada deret waktu<br />
+</li>
+<li>Mengenal model <em>random walk</em>.<br />
+</li>
+<li>Mengidentifikasi perilaku ACF dan PACF.</li>
+</ol>
+</div>
+<div id="stasioneritas" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Stasioneritas<a href="konsep-dasar-deret-waktu.html#stasioneritas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Asumsi yang harus dipenuhi pada pemodelan deret waktu adalah <strong>stasioneritas</strong>. Ide dasar dari kestasioneran adalah perilaku data tidak berubah sepanjang waktu. Ada 2 jenis stasioneritas yaitu <strong>stasioneritas kuat</strong> dan <strong>stasioneritas lemah</strong>. Misal proses <span class="math inline">\(\{Y_t\}\)</span> dengan rataan <span class="math inline">\(\mu_t\)</span>. <span class="math inline">\(\{Y_t\}\)</span> dikatakan <strong>stasioner kuat</strong> jika distribusi gabungan dari <span class="math inline">\(Y_{t_1},Y_{t_2},\dots,Y_{t_n}\)</span> sama dengan distribusi gabungan <span class="math inline">\(Y_{t_1-k},Y_{t_2-k},\dots,Y_{t_n-k}\)</span> untuk semua waktu <span class="math inline">\(t_1,t_2,\dots,t_n\)</span> dan lag waktu <span class="math inline">\(k&gt;0\)</span>.<br />
+Contoh : proses white noise <span class="math inline">\(\{\varepsilon_t\}\)</span> dengan <span class="math inline">\(\varepsilon_t \sim \text{N}(0, \sigma^2)\)</span> saling bebas dan indentik.<br />
+Sedangkan proses stokastik <span class="math inline">\(\{Y_t \}\)</span> dikatakan <strong>stasioner lemah</strong> jika:<br />
+1. Rataan konstan sepanjang waktu atau <span class="math inline">\(E[Y_t] = \mu \quad \forall t \in \mathbb{N}_0\)</span>; dan<br />
+2. Kovariansi untuk semua waktu <span class="math inline">\(t\)</span> dan lag <span class="math inline">\(k\)</span> konstan atau <span class="math inline">\(\text{Cov}(Y_t,Y_{t-k}) = \gamma_{t,t-k} = \gamma_{0,k} = \gamma_k\)</span>.</p>
+<p>Pada modul ini hanya dibahas tentang sifat kestasioneran lemah.</p>
+<p>Beberapa contoh pola data dalam deret waktu, diantaranya pola tren, musiman, dan pola stasioner.<br />
+1. Pola tren: Terjadi jika terdapat kenaikan atau penurunan sekuler jangka panjang dalam data;<br />
+2. Pola musiman: Terjadi jika suatu deret dipengaruhi oleh faktor musiman (misalnya kuartal tahun, bulanan, atau hari-hari pada minggu tertentu); dan<br />
+3. Pola stasioner: Terjadi jika data berfluktuasi di sekitar rata-rata yang konstan.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="konsep-dasar-deret-waktu.html#cb1-1" tabindex="-1"></a><span class="co"># Package yang digunakan </span></span>
+<span id="cb1-2"><a href="konsep-dasar-deret-waktu.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(zoo)</span>
+<span id="cb1-3"><a href="konsep-dasar-deret-waktu.html#cb1-3" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb1-4"><a href="konsep-dasar-deret-waktu.html#cb1-4" tabindex="-1"></a><span class="fu">library</span>(tseries)</span>
+<span id="cb1-5"><a href="konsep-dasar-deret-waktu.html#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="konsep-dasar-deret-waktu.html#cb1-6" tabindex="-1"></a><span class="co"># Seed agar simulasi tetap sama</span></span>
+<span id="cb1-7"><a href="konsep-dasar-deret-waktu.html#cb1-7" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1602</span>)</span>
+<span id="cb1-8"><a href="konsep-dasar-deret-waktu.html#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="konsep-dasar-deret-waktu.html#cb1-9" tabindex="-1"></a><span class="co"># Contoh data White Noise</span></span>
+<span id="cb1-10"><a href="konsep-dasar-deret-waktu.html#cb1-10" tabindex="-1"></a>wn <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span><span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)),<span class="at">n =</span><span class="dv">300</span>)</span>
+<span id="cb1-11"><a href="konsep-dasar-deret-waktu.html#cb1-11" tabindex="-1"></a><span class="fu">plot</span>(wn, <span class="at">main =</span> <span class="st">&#39;Data 1, Stasioner&#39;</span>)</span>
+<span id="cb1-12"><a href="konsep-dasar-deret-waktu.html#cb1-12" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fu">mean</span>(wn),<span class="at">col=</span><span class="st">&#39;red&#39;</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/Contoh%20Plot%20yang%20Stasioner%20dan%20Tidak%20Stasioner-1.png" width="672" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th>Jurnal Praktikum 1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Berikan interpretasi anda terhadap gambar tersebut !</td>
+</tr>
+<tr class="even">
+<td>2. Apakah data tersebar pada rataan data ?</td>
+</tr>
+<tr class="odd">
+<td>3. Apakah terdapat pola tren data ?</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="konsep-dasar-deret-waktu.html#cb2-1" tabindex="-1"></a><span class="co"># Seed agar simulasi tetap sama</span></span>
+<span id="cb2-2"><a href="konsep-dasar-deret-waktu.html#cb2-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1602</span>)</span>
+<span id="cb2-3"><a href="konsep-dasar-deret-waktu.html#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="konsep-dasar-deret-waktu.html#cb2-4" tabindex="-1"></a><span class="co"># Data Harga Emas</span></span>
+<span id="cb2-5"><a href="konsep-dasar-deret-waktu.html#cb2-5" tabindex="-1"></a><span class="fu">data</span>(gold)</span>
+<span id="cb2-6"><a href="konsep-dasar-deret-waktu.html#cb2-6" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="fu">ts</span>(gold[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>])</span>
+<span id="cb2-7"><a href="konsep-dasar-deret-waktu.html#cb2-7" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="fu">na.fill</span>(sum,<span class="fu">median</span>(sum,<span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb2-8"><a href="konsep-dasar-deret-waktu.html#cb2-8" tabindex="-1"></a>mean_sum <span class="ot">&lt;-</span> <span class="fu">mean</span>(sum,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb2-9"><a href="konsep-dasar-deret-waktu.html#cb2-9" tabindex="-1"></a><span class="fu">plot</span>(sum, <span class="at">main =</span> <span class="st">&#39;Data Harga Emas, Tidak Stasioner&#39;</span>)</span>
+<span id="cb2-10"><a href="konsep-dasar-deret-waktu.html#cb2-10" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>mean_sum,<span class="at">col=</span><span class="st">&#39;red&#39;</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/Contoh%20Plot%20yang%20Stasioner%20an%20Tidak%20Stasioner-1.png" width="672" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th>Jurnal Praktikum 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Berikan interpretasi anda terhadap gambar tersebut !</td>
+</tr>
+<tr class="even">
+<td>2. Apakah data tersebar pada rataan data ?</td>
+</tr>
+<tr class="odd">
+<td>3. Apakah terdapat pola tren data ?</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="konsep-dasar-deret-waktu.html#cb3-1" tabindex="-1"></a><span class="co"># Seed agar simulasi tetap sama</span></span>
+<span id="cb3-2"><a href="konsep-dasar-deret-waktu.html#cb3-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1602</span>)</span>
+<span id="cb3-3"><a href="konsep-dasar-deret-waktu.html#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="konsep-dasar-deret-waktu.html#cb3-4" tabindex="-1"></a><span class="co"># Data CO2</span></span>
+<span id="cb3-5"><a href="konsep-dasar-deret-waktu.html#cb3-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;co2&quot;</span>)</span>
+<span id="cb3-6"><a href="konsep-dasar-deret-waktu.html#cb3-6" tabindex="-1"></a>seasonal <span class="ot">&lt;-</span> <span class="fu">ts</span>(co2[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>])</span>
+<span id="cb3-7"><a href="konsep-dasar-deret-waktu.html#cb3-7" tabindex="-1"></a><span class="fu">plot</span>(seasonal, <span class="at">main =</span> <span class="st">&#39;Data CO2, Tidak Stasioner&#39;</span>)</span>
+<span id="cb3-8"><a href="konsep-dasar-deret-waktu.html#cb3-8" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fu">mean</span>(seasonal),<span class="at">col=</span><span class="st">&#39;red&#39;</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/Contoh%20Plot%20yang%20Stasioner%20daan%20Tidak%20Stasioner-1.png" width="672" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th>Jurnal Praktikum 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Berikan interpretasi anda terhadap gambar tersebut !</td>
+</tr>
+<tr class="even">
+<td>2. Apakah data tersebar pada rataan data ?</td>
+</tr>
+<tr class="odd">
+<td>3. Apakah terdapat pola tren data ?</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="konsep-dasar-deret-waktu.html#cb4-1" tabindex="-1"></a><span class="co"># Seed agar simulasi tetap sama</span></span>
+<span id="cb4-2"><a href="konsep-dasar-deret-waktu.html#cb4-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1602</span>)</span>
+<span id="cb4-3"><a href="konsep-dasar-deret-waktu.html#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="konsep-dasar-deret-waktu.html#cb4-4" tabindex="-1"></a><span class="co"># Membuat data Random Walk</span></span>
+<span id="cb4-5"><a href="konsep-dasar-deret-waktu.html#cb4-5" tabindex="-1"></a>random_walk <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">order=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>)),<span class="at">n=</span><span class="dv">300</span>)</span>
+<span id="cb4-6"><a href="konsep-dasar-deret-waktu.html#cb4-6" tabindex="-1"></a><span class="fu">plot</span>(random_walk, <span class="at">main =</span> <span class="st">&#39;Data Random Walk, Tidak Stasioner&#39;</span>)</span>
+<span id="cb4-7"><a href="konsep-dasar-deret-waktu.html#cb4-7" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fu">mean</span>(random_walk),<span class="at">col=</span><span class="st">&#39;red&#39;</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/Contoh%20Plot%20yang%20Stasioner%20a%20Tidak%20Stasioner-1.png" width="672" style="display: block; margin: auto;" /></p>
+<table>
+<thead>
+<tr class="header">
+<th>Jurnal Praktikum 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Berikan interpretasi anda terhadap gambar tersebut !</td>
+</tr>
+<tr class="even">
+<td>2. Apakah data tersebar pada rataan data ?</td>
+</tr>
+<tr class="odd">
+<td>3. Apakah terdapat pola tren data ?</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="autokorelasi" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Autokorelasi<a href="konsep-dasar-deret-waktu.html#autokorelasi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Misalkan proses <span class="math inline">\(\{Y_t\}\)</span> stasioner maka korelasi antar peubah acak yang terpisah sejauh <span class="math inline">\(k\)</span> lag waktu adalah:
+<span class="math display">\[\begin{align*}
+\rho_k &amp;= \text{Corr}(Y_t, Y_{t-k}) \\
+&amp;= \frac{\text{Cov}(Y_t, Y_{t-k})}{\sqrt{\text{Var}(Y_t)\text{Var}(Y_{t-k})}} \\
+&amp;= \frac{\gamma_k}{\gamma_0}, \quad k \in \mathbb{N}_0
+\end{align*}\]</span>
+Terdapat statistik uji untuk menguji apakah nilai autokorelasi pada suatu lag ke-<span class="math inline">\(k\)</span> signifikan atau tidak. Statistik uji tersebut adalah statistik <strong>uji <span class="math inline">\(t_{ratio}\)</span></strong> dengan
+<span class="math display">\[\begin{align*}
+H_0 : \rho_k = 0 \\
+H_1 : \rho_k \neq 0
+\end{align*}\]</span>
+dengan <span class="math inline">\(k \in \mathbb{N}\)</span>. Statistik hitung dari uji ini adalah:
+<span class="math display" id="eq:tratio">\[\begin{equation}
+t_{\text{ratio}} := \frac{\hat{\rho}_k}{\sqrt{\left( 1 + \sum_{i = 1}^{k - 1} \hat{\rho}_i\right)/n}} \tag{1.1}
+\end{equation}\]</span>
+dengan <span class="math inline">\(n\)</span> adalah ukuran sampel.<br />
+<span class="math inline">\(H_0\)</span> akan ditolak jika <span class="math inline">\(|t_{\text{hitung}}| &gt; Z_{1-\frac{\alpha}{2}}\)</span> dengan <span class="math inline">\(Z_{1-\frac{\alpha}{2}}\)</span> adalah persentil ke-(<span class="math inline">\(1-\frac{\alpha}{2}\)</span>) dari distribusi normal baku.<br />
+Sedangkan statistik uji untuk menguji apakah autokorelasi dari lag pertama hingga lag ke-<span class="math inline">\(k\)</span> signikan adalah Uji Ljung Box dengan:
+<span class="math display">\[\begin{align*}
+H_0 &amp;: \rho_1 = \rho_2 = \dots = \rho_k = 0 \\
+H_1 &amp;: \rho_j \neq 0, \quad \quad j \in \{1, \dots, k \}
+\end{align*}\]</span>
+dengan <span class="math inline">\(k \in \mathbb{N}\)</span>. Statistik hitung dari uji ini adalah:
+<span class="math display" id="eq:statuji">\[\begin{equation}
+Q(k) := n\left(n+2\right)\sum_{i=1}^k \frac{\hat{\rho}_i^2}{n-i} \tag{1.2}
+\end{equation}\]</span>
+<span class="math inline">\(H_0\)</span> ditolak jika <span class="math inline">\(Q(k) &gt; \chi^2_{1-\alpha,k}\)</span> dengan <span class="math inline">\(\chi^2_{1-\alpha,k}\)</span> adalah nilai persentil <span class="math inline">\(1-\alpha\)</span> dari distribusi <span class="math inline">\(\chi^2\)</span> dengan derajat kebebasan <span class="math inline">\(k\)</span>.</p>
+</div>
+<div id="random-walk" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Random Walk<a href="konsep-dasar-deret-waktu.html#random-walk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Misalkan <span class="math inline">\(\varepsilon_1,\varepsilon_2, \dots\)</span> barisan peubah acak yang berdistribusi Normal yang saling bebas dan identik dengan <span class="math inline">\(E[\varepsilon_i]=0\)</span> dan <span class="math inline">\(\text{Var}(\varepsilon_i) =\sigma^2_\varepsilon\)</span> untuk semua <span class="math inline">\(i\)</span>. Maka proses <em>random walk</em> dapat dikonstruksi dengan persamaan berikut:
+<span class="math display" id="eq:rw">\[\begin{equation}
+Y_t = \sum_{i=1}^t \varepsilon_i \tag{1.3}
+\end{equation}\]</span>
+yang dapat ditulis secara rekursif seperti berikut:
+<span class="math display">\[\begin{equation}
+Y_t = Y_{t-1} - \varepsilon_t
+\end{equation}\]</span></p>
+</div>
+<div id="contoh-soal" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Contoh Soal<a href="konsep-dasar-deret-waktu.html#contoh-soal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>Unduh data berikut ini</p>
+</blockquote>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><a href="https://drive.google.com/uc?export=download&amp;id=1zevgGmfz87MJYn8OuIX5FEBgypR-DWnG">TEKAN UNTUK MENGUNDUH DATA</a></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<blockquote>
+<p>kemudian buatlah algoritma untuk menghitung :<br />
+1. Rataan dari data;<br />
+2. Kovariansi dari data; dan<br />
+3. Korelasi dari data</p>
+</blockquote>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="konsep-dasar-deret-waktu.html#cb5-1" tabindex="-1"></a><span class="co"># Membaca data</span></span>
+<span id="cb5-2"><a href="konsep-dasar-deret-waktu.html#cb5-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb5-3"><a href="konsep-dasar-deret-waktu.html#cb5-3" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data.xlsx&quot;</span>)  </span>
+<span id="cb5-4"><a href="konsep-dasar-deret-waktu.html#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="konsep-dasar-deret-waktu.html#cb5-5" tabindex="-1"></a><span class="co"># Membuat plot data</span></span>
+<span id="cb5-6"><a href="konsep-dasar-deret-waktu.html#cb5-6" tabindex="-1"></a><span class="fu">plot</span>(df<span class="sc">$</span>Date, df<span class="sc">$</span><span class="st">`</span><span class="at">Ice Cream Sales</span><span class="st">`</span>, <span class="at">type =</span> <span class="st">&#39;line&#39;</span>, </span>
+<span id="cb5-7"><a href="konsep-dasar-deret-waktu.html#cb5-7" tabindex="-1"></a>   <span class="at">xlab=</span> <span class="st">&#39;Tanggal&#39;</span>, <span class="at">ylab=</span> <span class="st">&#39;Penjualan Es Krim&#39;</span>, </span>
+<span id="cb5-8"><a href="konsep-dasar-deret-waktu.html#cb5-8" tabindex="-1"></a>   <span class="at">col =</span> <span class="st">&#39;black&#39;</span>, </span>
+<span id="cb5-9"><a href="konsep-dasar-deret-waktu.html#cb5-9" tabindex="-1"></a>   <span class="at">main =</span> <span class="st">&#39;Plot Data Penjualan Es Krim&#39;</span>)</span>
+<span id="cb5-10"><a href="konsep-dasar-deret-waktu.html#cb5-10" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="fu">mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Ice Cream Sales</span><span class="st">`</span>), </span>
+<span id="cb5-11"><a href="konsep-dasar-deret-waktu.html#cb5-11" tabindex="-1"></a>     <span class="at">col=</span><span class="st">&#39;red&#39;</span>,</span>
+<span id="cb5-12"><a href="konsep-dasar-deret-waktu.html#cb5-12" tabindex="-1"></a>     <span class="at">lwd=</span><span class="dv">2</span>,<span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/Contoh%20Soal-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="konsep-dasar-deret-waktu.html#cb6-1" tabindex="-1"></a><span class="co"># Algoritma menghitung rataan (boleh menggunakan sum)  </span></span>
+<span id="cb6-2"><a href="konsep-dasar-deret-waktu.html#cb6-2" tabindex="-1"></a>sum_x <span class="ot">&lt;-</span> <span class="fu">sum</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Ice Cream Sales</span><span class="st">`</span>)</span>
+<span id="cb6-3"><a href="konsep-dasar-deret-waktu.html#cb6-3" tabindex="-1"></a>len <span class="ot">&lt;-</span> <span class="fu">length</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Ice Cream Sales</span><span class="st">`</span>)</span>
+<span id="cb6-4"><a href="konsep-dasar-deret-waktu.html#cb6-4" tabindex="-1"></a>rata_x <span class="ot">&lt;-</span> sum_x<span class="sc">/</span>len</span>
+<span id="cb6-5"><a href="konsep-dasar-deret-waktu.html#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="konsep-dasar-deret-waktu.html#cb6-6" tabindex="-1"></a><span class="co"># Algoritma menghitung kovariansi  </span></span>
+<span id="cb6-7"><a href="konsep-dasar-deret-waktu.html#cb6-7" tabindex="-1"></a>maxLag <span class="ot">&lt;-</span> <span class="dv">24</span></span>
+<span id="cb6-8"><a href="konsep-dasar-deret-waktu.html#cb6-8" tabindex="-1"></a>kov <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, maxLag)</span>
+<span id="cb6-9"><a href="konsep-dasar-deret-waktu.html#cb6-9" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span> maxLag) {</span>
+<span id="cb6-10"><a href="konsep-dasar-deret-waktu.html#cb6-10" tabindex="-1"></a>x_star <span class="ot">&lt;-</span> df<span class="sc">$</span><span class="st">`</span><span class="at">Ice Cream Sales</span><span class="st">`</span>[<span class="dv">1</span><span class="sc">:</span>(len<span class="sc">-</span>k<span class="sc">+</span><span class="dv">1</span>)]<span class="sc">-</span></span>
+<span id="cb6-11"><a href="konsep-dasar-deret-waktu.html#cb6-11" tabindex="-1"></a>  <span class="fu">mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Ice Cream Sales</span><span class="st">`</span>[<span class="dv">1</span><span class="sc">:</span>(len<span class="sc">-</span>k<span class="sc">+</span><span class="dv">1</span>)]) </span>
+<span id="cb6-12"><a href="konsep-dasar-deret-waktu.html#cb6-12" tabindex="-1"></a>y_star <span class="ot">&lt;-</span> df<span class="sc">$</span><span class="st">`</span><span class="at">Ice Cream Sales</span><span class="st">`</span>[(<span class="dv">1</span><span class="sc">+</span>k<span class="dv">-1</span>)<span class="sc">:</span>len]<span class="sc">-</span></span>
+<span id="cb6-13"><a href="konsep-dasar-deret-waktu.html#cb6-13" tabindex="-1"></a>  <span class="fu">mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Ice Cream Sales</span><span class="st">`</span>[(<span class="dv">1</span><span class="sc">+</span>k<span class="dv">-1</span>)<span class="sc">:</span>len])</span>
+<span id="cb6-14"><a href="konsep-dasar-deret-waktu.html#cb6-14" tabindex="-1"></a>kov[k]  <span class="ot">&lt;-</span>  (x_star)<span class="sc">%*%</span>(y_star) <span class="sc">/</span>(len)</span>
+<span id="cb6-15"><a href="konsep-dasar-deret-waktu.html#cb6-15" tabindex="-1"></a>}</span>
+<span id="cb6-16"><a href="konsep-dasar-deret-waktu.html#cb6-16" tabindex="-1"></a><span class="co"># Algoritma menghitung korelasi</span></span>
+<span id="cb6-17"><a href="konsep-dasar-deret-waktu.html#cb6-17" tabindex="-1"></a>kor <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, maxLag)</span>
+<span id="cb6-18"><a href="konsep-dasar-deret-waktu.html#cb6-18" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span> maxLag) {</span>
+<span id="cb6-19"><a href="konsep-dasar-deret-waktu.html#cb6-19" tabindex="-1"></a>x_star <span class="ot">&lt;-</span> df<span class="sc">$</span><span class="st">`</span><span class="at">Ice Cream Sales</span><span class="st">`</span>[<span class="dv">1</span><span class="sc">:</span>(len<span class="sc">-</span>k<span class="sc">+</span><span class="dv">1</span>)]<span class="sc">-</span></span>
+<span id="cb6-20"><a href="konsep-dasar-deret-waktu.html#cb6-20" tabindex="-1"></a>  <span class="fu">mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Ice Cream Sales</span><span class="st">`</span>[<span class="dv">1</span><span class="sc">:</span>(len<span class="sc">-</span>k<span class="sc">+</span><span class="dv">1</span>)]) </span>
+<span id="cb6-21"><a href="konsep-dasar-deret-waktu.html#cb6-21" tabindex="-1"></a>y_star <span class="ot">&lt;-</span> df<span class="sc">$</span><span class="st">`</span><span class="at">Ice Cream Sales</span><span class="st">`</span>[k<span class="sc">:</span>len]<span class="sc">-</span></span>
+<span id="cb6-22"><a href="konsep-dasar-deret-waktu.html#cb6-22" tabindex="-1"></a>  <span class="fu">mean</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">Ice Cream Sales</span><span class="st">`</span>[k<span class="sc">:</span>len])</span>
+<span id="cb6-23"><a href="konsep-dasar-deret-waktu.html#cb6-23" tabindex="-1"></a>penyebut <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((x_star<span class="sc">%*%</span>x_star)<span class="sc">*</span>(y_star<span class="sc">%*%</span>y_star))</span>
+<span id="cb6-24"><a href="konsep-dasar-deret-waktu.html#cb6-24" tabindex="-1"></a>kor[k]  <span class="ot">&lt;-</span>  x_star<span class="sc">%*%</span>y_star<span class="sc">/</span>penyebut</span>
+<span id="cb6-25"><a href="konsep-dasar-deret-waktu.html#cb6-25" tabindex="-1"></a>}</span></code></pre></div>
+<p>Penjelasan lebih lanjut :
+Persamaan kovariansi dapat ditulis sebagai berikut :
+<span class="math display">\[\begin{equation}
+\hat{\gamma}_{XY} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{n} = \frac{1}{n}(\vec{x}^* \cdot \vec{y}^*)
+\end{equation}\]</span>
+dengan <span class="math inline">\(\vec{x}^* = (x_1 - \bar{x}, \dots, x_n - \bar{x})^T\)</span> dan <span class="math inline">\(\vec{y}^* = (y_1 - \bar{y}, \dots, y_n - \bar{y})^T\)</span>.<br />
+Sedangkan persamaan korelasi dapat ditulis sebagai berikut
+<span class="math display">\[\begin{equation}
+\hat{\rho}_{XY} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2\sum_{i=1}^n(y_i - \bar{y})^2}} = \frac{1}{\sqrt{(\vec{x}^{*^T}\cdot \vec{x}^*)(\vec{y}^{*^T}\cdot \vec{y}^{*})}}(\vec{x}^* \cdot \vec{y}^*)
+\end{equation}\]</span><br />
+Catatan :
+Perhatikan bahwa terdapat kovariansi dan variansi sampel dan populasi. Untuk algoritma menghitung kovariansi sampel dan variansi sampel diserahkan kepada pembaca.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="model-deret-waktu-stasioner.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-konsep-dasar-deret-waktu.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
